@@ -3,7 +3,7 @@ This is a Bash script that helps you clone all your desired public github reposi
 
 ## Why
 
-After intalling a new system on my computer, just felt too lazy at the thought of having to clone 
+After intalling a new system on my computer, just felt lazy at the thought of having to clone 
 each repo individually and was also thrilled enough to write this script tho it took me way longer to write it than it should have taken to clone individually.
 
 ## Features
