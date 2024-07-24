@@ -47,7 +47,7 @@ check_dependencies
 # check if user provided cridentials command line parameters if not request them
 if [ -z "$1" ]; then
 	read -p "Enter your github user name: " user_name
-	read -p "Enter your github token: " user_token
+	read -p "Enter your github access token: " user_token
 else
 	user_name="$1"
 	user_token="$2"
