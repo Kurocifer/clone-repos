@@ -4,8 +4,10 @@ check_dependencies() {
 	jq_dependency="jq"
 	curl_dependency="curl"
 
-	# check if jq program for command-line JSON processing dependency
+
 	printf "Checking for $jq_dependency and $curl_dependency...\n\n"
+
+	# check if jq is already installed on system
 	if which "$jq_dependency" &> /dev/null; then
 		echo "$jq_dependency present" &> /dev/null
 	else
@@ -44,7 +46,7 @@ check_dependencies() {
 
 check_dependencies
 
-# check if user provided cridentials command line parameters if not request them
+# check if user provided cridentials as command line arguements if not request for them
 if [ -z "$1" ]; then
 	read -p "Enter your github user name: " user_name
 	read -p "Enter your github access token: " user_token
@@ -63,7 +65,7 @@ api_response=$(curl -L -H "Accept: application/vnd.github+json" -H "Authorizatio
 
 # check if api request went through
 if [ $? -eq 0 ]; then
-	# verify api resonse for error messages
+	# verify api response for error messages
 	if echo "$api_response" | jq -e '.message' &>/dev/null; then
 		echo "Error: $(echo "$api_response" | jq -r '.message')"
 	else
